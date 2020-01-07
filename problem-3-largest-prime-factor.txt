@@ -1,0 +1,16 @@
+function largestPrimeFactor(number) {
+  var primes = []
+  var iter = 2
+  while(iter <= number){
+    if(number % iter == 0){
+      primes.push(iter)
+      while(number % iter == 0){
+        number = number / iter;
+      }
+    }
+    iter++
+  }
+  return primes.reduce(function(a, b) {
+    return Math.max(a, b);
+  });
+}
