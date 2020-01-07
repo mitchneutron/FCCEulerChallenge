@@ -1,0 +1,16 @@
+function fiboEvenSum(n) {
+  var cur = 1;
+  var prev =1 ;
+  var total = 0;
+  for(var i = 1; i <n; i++){
+    var temp = cur;
+    cur = prev + cur;
+    prev = temp;
+    if(cur % 2 == 0) {
+      total += cur
+    }
+  }
+  return total;
+}
+
+console.log(fiboEvenSum(10));
