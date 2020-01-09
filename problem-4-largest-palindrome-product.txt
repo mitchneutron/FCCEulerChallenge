@@ -1,0 +1,27 @@
+function largestPalindromeProduct(n) {
+  var base = Math.pow(10, n - 1)
+  var max = base * 10 - 1;
+  var x = base
+  var y = x;
+  var pals = [];
+  while(x <= max){
+    while(y <= max){
+      if(isPal(x * y)){
+        pals.push(x * y)
+      }
+      y ++
+    }
+    x++
+    y = x
+  }
+  return Array.max(pals);
+}
+
+Array.max = function( array ){
+    return Math.max.apply( Math, array );
+};
+ 
+
+function isPal(n){
+  return n.toString().localeCompare(n.toString().split("").reverse().join("")) == 0
+}
