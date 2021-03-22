@@ -1,0 +1,16 @@
+function smallestMult(n) {
+  var nums = [...Array(n).keys()].map(i => i + 1)
+
+
+  for(let i = 0; i < nums.length; i++) {
+    let outer = nums[i]
+    for(let j = i + 1; j < nums.length; j++){
+      let inner = nums[j]
+      if(inner % outer == 0){
+        nums[j] = inner / outer
+      }
+    }
+  }
+
+  return nums.reduce((a,b) => a * b, 1);
+}
